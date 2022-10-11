@@ -32,14 +32,6 @@ const DetailsScreen = props => {
   console.log('data get :- ', props.route.params.dataAll.xt_image);
 
   const check = () => {
-    let body = {
-      first_name: firstName,
-      lastName: lastName,
-      email: emails,
-      phone: phones,
-      user_image: props.route.params.dataAll.xt_image,
-    };
-
     let img = props.route.params.dataAll.xt_image;
 
     if (
@@ -206,6 +198,7 @@ const DetailsScreen = props => {
                 placeholder="Your Phone"
                 placeholderTextColor="#7F7F7F"
                 keyboardType="number-pad"
+                maxLength={10}
                 style={styles.textInput}
                 value={phones}
                 onChangeText={val => {
@@ -217,7 +210,7 @@ const DetailsScreen = props => {
 
           <View style={{marginTop: 25}}>
             {!loader ? (
-              <Button  mode="contained" onPress={() => check()}>
+              <Button mode="contained" onPress={() => check()}>
                 Submit
               </Button>
             ) : (
